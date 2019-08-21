@@ -30,7 +30,7 @@ int main(int argc, char *argv[], char *envp[])
 		{
 			for(;;)
 			{
-				malloc(sizeof(char) / 8);	
+				malloc(sizeof(char) / 9);	
 			}
 		}
 	}
