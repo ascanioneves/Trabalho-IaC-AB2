@@ -3,17 +3,17 @@
 * Página do repositório do trabalho ([link GitHub]https://github.com/ascanioneves/Trabalho-IaC-AB2) 
 
 * Discente 1
-	* Nome: TODO
-	* Matrícula: TODO 
-	* Distribuição da nota (%): TODO
+	* Nome: Ascânio Sávio de Araujo Neves
+	* Matrícula: 19111148 
+	* Distribuição da nota (%): IGUAL
 * Discente 2
-	* Nome: TODO
-	* Matrícula: TODO
-	* Distribuição da nota (%): TODO
+	* Nome: João Victor de Alarcão Ayalla Alcântara
+	* Matrícula: 19111155
+	* Distribuição da nota (%): IGUAL
 * Discente 3
-	* Nome: TODO
-	* Matrícula: TODO
-	* Distribuição da nota (%): TODO		
+	* Nome: Danilo Vasconcelos Freire
+	* Matrícula: 19110977
+	* Distribuição da nota (%): IGUAL		
 	
 # Resultados
 
