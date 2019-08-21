@@ -16,8 +16,9 @@
 	* Distribuição da nota (%): IGUAL		
 	
 # Resultados
-
+![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613831287173677057/chart.png)
 ![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613833063046185019/chart_1.png)
+![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613832098582888458/chart_2.png)
 * TODO: Plotar um gráfico com os resultados das medições das seguintes métricas utilizadas para avaliar o comportamento do **processo filho**:
 	*  **UCP**: consumo da UCP em porcentagem.
 	*  **UCP-MEM**: consumo da memória principal em Kilobytes.
