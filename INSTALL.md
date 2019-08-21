@@ -8,11 +8,11 @@ gcc main.c -o main
 
 Agora que o programa foi compilado , ele deve ser executado através dos seguintes comandos:
 
-  - Para o teste com o processador apenas execute o programa com o seguinte comando:
+  - Para a execução do código com utilização intensa da CPU:
   ```bash
 $ ./main cpu
   ```
-  - Para o teste com o processador e a memória execute o programa com o seguinte comando:
+  - Para a execução do código com utilização intensa da CPU e da Memória:
   ```bash
 $ ./main cpu-mem
   ```
