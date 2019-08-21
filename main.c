@@ -6,20 +6,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-void cpu_usage()
-{
-	for(;;)
-	{
-
-	}
-}
-void cpu_mem_usage()
-{
-	for(;;)
-	{
-		malloc(sizeof(char) / 8);	
-	}
-}
 int main(int argc, char *argv[], char *envp[])
 {
 	int i = 0 ; //contador do loop
@@ -35,11 +21,17 @@ int main(int argc, char *argv[], char *envp[])
 	{
 		if(strcmp(argv[1], "cpu") == 0)
 		{
-			cpu_usage();	
+			for(;;)
+			{
+
+			}	
 		}
 		else if(strcmp(argv[1], "cpu-mem") == 0)
 		{
-			cpu_mem_usage();
+			for(;;)
+			{
+				malloc(sizeof(char) / 8);	
+			}
 		}
 	}
 	else //pai
@@ -47,13 +39,13 @@ int main(int argc, char *argv[], char *envp[])
 		sprintf(convert, "%d", pid);
 		if(strcmp(argv[1], "cpu") == 0)
 		{
-			printf("PID / CPU%%\n");
+			printf("  PID / CPU(%%)\n");
 			strcpy(comand, "ps -e -o pid,pcpu | grep ");//coloca uma parte do comando linux na string comand
 			strcat(comand, convert);//concatena a string comand com o pid ja transformado em string
 		}
 		else if(strcmp(argv[1], "cpu-mem") == 0)
 		{
-			printf("PID / CPU%%\n");
+			printf("  PID / CPU%%\n");
 			strcpy(comand, "ps -e -o pid,pcpu | grep ");////coloca uma parte do comando linux na string comand
 			strcat(comand, convert);
 			strcat(comand, ";pmap ");//concatena a string comand com o ; que indica o final do comando da cpu e com o pmap para o uso da memória
