@@ -44,4 +44,6 @@ Diante disso, a função responsável por inserir uma string no bash do linux é
 
 ## Utilização intensa da UCP e memória
 
-TODO: explicar se o comportamento da curva **UCP-MEM** foi o esperado, sempre justificando sua resposta, referenciando o código fonte do programa e o gráfico do experimento realizado.
+Quando executado o programa com o parâmetro "cpu-mem" como argumento da função "main", é acionada a condição de repetição durante 10 segundos de monitoramento, após isso o processo filho é eliminado. Assim sendo, o resultado obtido foi o esperado, visto que gerou uma intensa utilização da CPU com uma amplitude que variou de 0.0% a 107%, assim como, uma intensa utilização da Memória com uma amplitude que variou de 43176 Kilobytes a 4989804 Kilobytes.
+  
+Caso o argumento recebido na função "main" seja "cpu-mem" o programa direciona a uma estrutura de repetição que vai não somente realizar um laço limitado a 10 segundos como também vai, em outro laço alocar memória através da função "malloc"
