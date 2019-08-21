@@ -36,7 +36,7 @@ Quando executado o programa com o parâmetro "cpu" como argumento da função "m
 A primeira etapa é a criação de um novo processo("processo filho") por meio da função "fork", a qual retorna um valor negativo caso houve algum erro na criação do processo, um valor positivo caso seja o processo de origem("processo pai") ou o valor 0 caso seja o processo filho e esse retorno é o identificador do processo("pid"). Após isso, são feitas as verificações dos argumentos da função "main", podendo ser "cpu" para utilização intensa da CPU ou "cpu-mem" para utilização intensa da CPU e da Memória, nesse caso iremos falar somente do argumento "cpu".
   
   
-Após o argumento ser identificado como "cpu" o programa direciona a uma estrutura de repetição ,a princípio sem condição de parada, mas que futuramente será limitada pelo intervalo de 10 segundos. Vale ressaltar que os dois processos, tanto o "pai" quanto o "filho", estarão em execução e, com isso, o "pai" passa a monitorar o processo "filho" que é o alicerce do experimento. Para realizar esse monitoramento é necessário utilizar o comando do bash do Linux que é responsável por isso:  
+Após o argumento ser identificado como "cpu" o programa direciona a uma estrutura de repetição ,a princípio sem condição de parada, mas que futuramente será limitada pelo intervalo de 10 segundos. Vale ressaltar que os dois processos, tanto o "pai" quanto o "filho", estarão em execução e, com isso, o "pai" passa a monitorar o processo "filho" que é o alicerce do experimento. Para realizar esse monitoramento é necessário utilizar o seguinte comando do bash do Linux que é responsável por isso:  
 ```bash
 ps -e -o pid,pcpu | grep "pid"(convertido para string)
 ```
@@ -47,4 +47,8 @@ Diante disso, a função responsável por inserir uma string no bash do linux é
 
 Quando executado o programa com o parâmetro "cpu-mem" como argumento da função "main", é acionada a condição de repetição durante 10 segundos de monitoramento, após isso o processo filho é eliminado. Assim sendo, o resultado obtido foi o esperado, visto que gerou uma intensa utilização da CPU com uma amplitude que variou de 0.0% a 107%, assim como, uma intensa utilização da Memória com uma amplitude que variou de 43176 Kilobytes a 4989804 Kilobytes.
   
-Caso o argumento recebido na função "main" seja "cpu-mem" o programa direciona a uma estrutura de repetição que vai não somente realizar um laço limitado a 10 segundos como também vai, em outro laço alocar memória através da função "malloc" contida na biblioteca "stdlib.h"
+Caso o argumento recebido na função "main" seja "cpu-mem" o programa direciona a uma estrutura de repetição que vai não somente realizar um laço limitado a 10 segundos como também vai, em outro laço alocar memória através da função "malloc" contida na biblioteca "stdlib.h". Ao decorrer da execução do programa, o processo "pai" vai fazer o monitoramento do processo "filho" que, nesse caso, será tanto utilização intensa da CPU quanto utilização intensa da Memória, e isso é feito através do seguinte comando do bash do Linux:
+  
+```bash
+ps -e -o pid,pcpu | grep "pid"(convertido para string);pmap "pid"(convertido para string) | grep -i total 
+```
