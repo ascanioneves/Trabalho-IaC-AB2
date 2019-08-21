@@ -18,7 +18,6 @@
 # Resultados
 
 ![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613833063046185019/chart_1.png)
-Format: ![png](url)
 * TODO: Plotar um gráfico com os resultados das medições das seguintes métricas utilizadas para avaliar o comportamento do **processo filho**:
 	*  **UCP**: consumo da UCP em porcentagem.
 	*  **UCP-MEM**: consumo da memória principal em Kilobytes.
