@@ -2,7 +2,7 @@
 
 Após estar na pasta onde foi baixado o arquivo "main.c" , o código deve ser compilado assim:
 ```bash
-$ gcc main.c -o main
+gcc main.c -o main
 ```
 # Execução
 
