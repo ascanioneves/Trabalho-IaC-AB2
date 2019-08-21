@@ -37,7 +37,7 @@ A primeira etapa é a criação de um novo processo("processo filho") por meio d
   
   
 Após o argumento ser identificado como "cpu" o programa direciona a uma estrutura de repetição ,a princípio sem condição de parada, mas que futuramente será limitada pelo intervalo de 10 segundos. Vale ressaltar que os dois processos, tanto o "pai" quanto o "filho", estarão em execução e, com isso, o "pai" passa a monitorar o processo "filho" que é o alicerce do experimento. Para realizar esse monitoramento é necessário utilizar o comando do bash do Linux que é responsável por isso:  
-```c
+```bash
 ps -e -o pid,pcpu | grep "pid"(convertido para string)
 ```
   
@@ -47,4 +47,4 @@ Diante disso, a função responsável por inserir uma string no bash do linux é
 
 Quando executado o programa com o parâmetro "cpu-mem" como argumento da função "main", é acionada a condição de repetição durante 10 segundos de monitoramento, após isso o processo filho é eliminado. Assim sendo, o resultado obtido foi o esperado, visto que gerou uma intensa utilização da CPU com uma amplitude que variou de 0.0% a 107%, assim como, uma intensa utilização da Memória com uma amplitude que variou de 43176 Kilobytes a 4989804 Kilobytes.
   
-Caso o argumento recebido na função "main" seja "cpu-mem" o programa direciona a uma estrutura de repetição que vai não somente realizar um laço limitado a 10 segundos como também vai, em outro laço alocar memória através da função "malloc"
+Caso o argumento recebido na função "main" seja "cpu-mem" o programa direciona a uma estrutura de repetição que vai não somente realizar um laço limitado a 10 segundos como também vai, em outro laço alocar memória através da função "malloc" contida na biblioteca "stdlib.h"
