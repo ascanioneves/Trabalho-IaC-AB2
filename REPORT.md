@@ -32,13 +32,15 @@
 Quando executado o programa com o parâmetro "cpu" como argumento da função "main", é acionada a condição de repetição durante 10 segundos de monitoramento, após isso o processo filho é eliminado. Assim sendo, o resultado obtido foi o esperado, visto que gerou uma intensa utilização da CPU com uma amplitude que variou de 0.0% a 125% na execução do programa.
   
   
-A primeira etapa é a criação de um novo processo("processo filho") por meio da função "fork", a qual retorna um valor negativo caso houve algum erro na criação do processo, um valor positivo caso seja o processo de origem("processo pai") ou o valor 0 caso seja o processo filho. Após isso, são feitas as verificações dos argumentos da função "main", podendo ser "cpu" para utilização intensa da CPU ou "cpu-mem" para utilização intensa da CPU e da Memória, nesse caso iremos falar somente do argumento "cpu".
+A primeira etapa é a criação de um novo processo("processo filho") por meio da função "fork", a qual retorna um valor negativo caso houve algum erro na criação do processo, um valor positivo caso seja o processo de origem("processo pai") ou o valor 0 caso seja o processo filho e esse retorno é o identificador do processo("pid"). Após isso, são feitas as verificações dos argumentos da função "main", podendo ser "cpu" para utilização intensa da CPU ou "cpu-mem" para utilização intensa da CPU e da Memória, nesse caso iremos falar somente do argumento "cpu".
   
   
 Após o argumento ser identificado como "cpu" o programa direciona a uma estrutura de repetição ,a princípio sem condição de parada, mas que futuramente será limitada pelo intervalo de 10 segundos. Vale ressaltar que os dois processos, tanto o "pai" quanto o "filho", estarão em execução e, com isso, o "pai" passa a monitorar o processo "filho" que é o alicerce do experimento. Para realizar esse monitoramento é necessário utilizar o comando do bash do Linux que é responsável por isso:  
 ```c
 ps -e -o pid,pcpu | grep "pid"(convertido para string)
 ```
+  
+Diante disso, a função responsável por inserir uma string no bash do linux é a "system", que está contida na biblioteca "stdlib.h", a qual recebe o comando como string e o insere no bash do linux a cada 1 segundo, em que o tempo é regulado pela função "sleep" que faz com que o programa aguarde a quantidade de tempo indicada pelo programador, sendo inserida num laço(comando "while") que, com auxílio de uma variável contadora, execute o comando em um total de 10 vezes. Após isso, é necessário que o processo "filho" seja eliminado, e isso feito através, novamente, da função "system" em que é passado o comando(em string) "kill " seguido do "pid" do "filho" 
 
 ## Utilização intensa da UCP e memória
 
