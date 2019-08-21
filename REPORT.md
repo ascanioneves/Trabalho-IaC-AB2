@@ -41,7 +41,7 @@ Após o argumento ser identificado como "cpu" o programa direciona a uma estrutu
 ps -e -o pid,pcpu | grep "pid"(convertido para string)
 ```
   
-Diante disso, a função responsável por inserir uma string no bash do linux é a "system", que está contida na biblioteca "stdlib.h", a qual recebe o comando como string e o insere no bash do linux a cada 1 segundo, em que o tempo é regulado pela função "sleep" que faz com que o programa aguarde a quantidade de tempo indicada pelo programador, sendo inserida num laço(comando "while") que, com auxílio de uma variável contadora, execute o comando em um total de 10 vezes exibindo o consumo, a cada ciclo, da CPU (em %). Após isso, é necessário que o processo "filho" seja eliminado, e isso feito através, novamente, da função "system" em que é passado o comando(em string) "kill " seguido do "pid" do "filho". Ao final de tudo, é exibida uma mensagem final do status de como foi a execução do programa e uma mensagem "Tchau !". 
+Diante disso, a função responsável por inserir uma string no bash do linux é a "system", que está contida na biblioteca "stdlib.h", a qual recebe o comando como string e o insere no bash do linux a cada 1 segundo, em que o tempo é regulado pela função "sleep" que faz com que o programa aguarde a quantidade de tempo indicada pelo programador, sendo inserida num laço(comando "while") que, com auxílio de uma variável contadora, execute o comando em um total de 10 vezes exibindo o consumo, a cada ciclo, da CPU (em %). Após isso, é necessário que o processo "filho" seja eliminado, e isso feito através, novamente, da função "system" em que é passado o comando(em string) "kill " seguido do "pid" do "filho". Ao final de tudo, é exibida uma mensagem de status de como foi a execução do programa e uma mensagem "Tchau !". 
 
 ## Utilização intensa da UCP e memória
 
@@ -52,4 +52,4 @@ Caso o argumento recebido na função "main" seja "cpu-mem" o programa direciona
 ```bash
 ps -e -o pid,pcpu | grep "pid"(convertido para string);pmap "pid"(convertido para string) | grep -i total 
 ```
-Em que o primeiro comando(até o ponto e vírgula) é o do monitoramento da CPU e o segundo é o do monitoramento da Memória. Posteriormente, 
+Em que o primeiro comando(até o ponto e vírgula) é o do monitoramento da CPU e o segundo é o do monitoramento da Memória. Posteriormente, a função "system" fará a inserção dos comandos já armezenados em uma string no bash do Linux em um laço durante 10 segundos e será exibido o consumo da CPU(%) e o consumo da memória(Kilobytes) a cada ciclo de 1 segundo. Ao final dos 10 segundos de monitoramento, é necessária a eliminação do processo "filho" e isso é feito, também, pela função "system" através do comando "kill " seguido do "pid" do processo "filho" e ao final de tudo é exibida uma mensagem de status de como foi a execução do programa e uma mensagem "Tchau !".
