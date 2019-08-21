@@ -29,7 +29,7 @@
 
 ## Utilização intensa da UCP
 
-TODO: explicar se o comportamento da curva **UCP** foi o esperado, sempre justificando sua resposta, referenciando o código fonte do programa e o gráfico do experimento realizado.
+Quando executado o programa com o parâmetro "cpu" como argumento da função main, é acionada a condição de repetição durante 10 segundos de monitoramento, após isso o processo filho é eliminado. Assim sendo, o resultado obtido foi o esperado, visto que gerou uma intensa utilização da CPU com uma amplitude que variou de 0.0% a 125% na execução do programa.
 
 ## Utilização intensa da UCP e memória
 
