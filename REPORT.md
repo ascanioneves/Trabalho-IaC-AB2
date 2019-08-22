@@ -1,6 +1,6 @@
 # Identificação
 
-* Página do repositório do trabalho [link GitHub]https://github.com/ascanioneves/Trabalho-IaC-AB2
+* Página do repositório do trabalho <a href="https://github.com/ascanioneves/Trabalho-IaC-AB2">link GitHub</a>
 
 * Discente 1
 	* Nome: Ascânio Sávio de Araujo Neves
