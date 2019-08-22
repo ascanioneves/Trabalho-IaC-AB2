@@ -17,7 +17,13 @@
 	
 # Resultados
 ![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613831287173677057/chart.png)
+  
+O gráfico acima se refere ao consumo da CPU durante a utilização intensa da mesma. O interessante a se observar do consumo é a excedência dos valores(acima de 100%), isso ocorre devido a utilização simultânea de vários núcleos do processador.
+  
+  
 ![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613833063046185019/chart_1.png)
+  
+O gráfico acima se refere ao consumo da CPU durante a utilização intensa da CPU e da memória. É notável, também, que o consumo da CPU nessa circunstância foi menor com um pico de 107%, tal fato ocorre porque agora não terá somente um laço vazio, mas também terá um função de alocação de memória, que faz com que o resultado("estresse de processamento") seja menor.
 ![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613833076442660887/chart_2.png)
 
 
