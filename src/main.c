@@ -10,8 +10,8 @@ int main(int argc, char *argv[], char *envp[]) //main function with the argument
 {
 	int i = 0 ; // loop counter
 	int pid = fork(); // variable who's saves the return (integer) of the fork function
-	char convert[200], command[200]; //convert -> array who's saves the pid in string format 
-					//command -> array who's saves the final bash command in string format
+	char convert[200], command[200]; //convert -> array that saves the pid in string format 
+					//command -> array that saves the final bash command in string format
 	if(pid < 0) // an error has occurred
 	{
 		perror("Erro: "); // error message
