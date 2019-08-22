@@ -24,7 +24,11 @@ O gráfico acima se refere ao consumo da CPU durante a utilização intensa da m
 ![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613833063046185019/chart_1.png)
   
 O gráfico acima se refere ao consumo da CPU durante a utilização intensa da CPU e da memória. É notável, também, que o consumo da CPU nessa circunstância foi menor com um pico de 107%, tal fato ocorre porque agora não terá somente um laço vazio, mas também terá um função de alocação de memória, que faz com que o resultado("estresse de processamento") seja menor.
+  
+
 ![GitHub Logo](https://media.discordapp.net/attachments/613803153128685636/613833076442660887/chart_2.png)
+  
+O gráfico acima se refere ao consumo da Memória Principal em Kilobytes durante a utilização intensa da Memória Principal e CPU. Observa-se que o gráfico se aproxima a um crescimento linear em que ao passar dos segundos de execução o consumo de memória se torna bastante acentuado.
 
 
 # Discussão
