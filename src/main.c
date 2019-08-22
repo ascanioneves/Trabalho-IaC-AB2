@@ -1,73 +1,73 @@
 #include <stdio.h>
 #include <unistd.h> 
 #include <sys/types.h> 
-#include <sys/wait.h> 
+#include <sys/wait.h>    // libraries
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, char *argv[], char *envp[])
+int main(int argc, char *argv[], char *envp[]) //main function with the arguments
 {
-	int i = 0 ; //contador do loop
-	int pid = fork(); //criando o processo filho e guardando o identificador
-	char convert[200], comand[200]; //convert -> variavel pra armazenar o pid convertido pra string
-									//comand -> o comando final do linux para monitorar
-	if(pid < 0)
+	int i = 0 ; // loop counter
+	int pid = fork(); // variable who's saves the return (integer) of the fork function
+	char convert[200], command[200]; //convert -> array who's saves the pid in string format 
+									//command -> array who's saves the final bash command in string format
+	if(pid < 0) // an error has occurred
 	{
-		perror("Erro: ");
-		exit(-1);
+		perror("Erro: "); // error message
+		exit(-1); // end of the program in this case
 	}
-	else if(pid == 0) //filho
+	else if(pid == 0) // I am the child process
 	{
-		if(strcmp(argv[1], "cpu") == 0)
+		if(strcmp(argv[1], "cpu") == 0) // main argument is "cpu"
 		{
 			for(;;)
 			{
-
+					// maximum CPU utilization loop
 			}	
 		}
-		else if(strcmp(argv[1], "cpu-mem") == 0)
+		else if(strcmp(argv[1], "cpu-mem") == 0) // main argument is "cpu-mem"
 		{
 			for(;;)
 			{
-				malloc(sizeof(char) / 8);	
+				malloc(sizeof(char) / 8);	// maximum cpu and memory utilization loop
 			}
 		}
 	}
-	else //pai
+	else // I am the father process
 	{
-		sprintf(convert, "%d", pid);
-		if(strcmp(argv[1], "cpu") == 0)
+		sprintf(convert, "%d", pid); // conversion of pid to string
+		if(strcmp(argv[1], "cpu") == 0) // main argument is "cpu"
 		{
-			printf("  PID / CPU(%%)\n");
-			strcpy(comand, "ps -e -o pid,pcpu | grep ");//coloca uma parte do comando linux na string comand
-			strcat(comand, convert);//concatena a string comand com o pid ja transformado em string
+			printf("  PID / CPU(%%)\n"); // to organize the program
+			strcpy(command, "ps -e -o pid,pcpu | grep ");// put a part of the CPU monitoring command in the string 
+			strcat(command, convert);// concatenates the string command with pid already transformed into string
 		}
-		else if(strcmp(argv[1], "cpu-mem") == 0)
+		else if(strcmp(argv[1], "cpu-mem") == 0) // main argument is "cpu-mem"
 		{
-			printf("  PID / CPU%%\n");
-			strcpy(comand, "ps -e -o pid,pcpu | grep ");////coloca uma parte do comando linux na string comand
-			strcat(comand, convert);
-			strcat(comand, ";pmap ");//concatena a string comand com o ; que indica o final do comando da cpu e com o pmap para o uso da memória
-			strcat(comand, convert);//concatena a string comand com o pid ja transformado em string
-			strcat(comand, " | grep -i total");
-		}
-
-		while(i < 10) //10 segundos
-		{
-			system(comand);
-			sleep(1); //espera 1 segundo
-			i++;
+			printf("  PID / CPU%%\n"); // to organize the program
+			strcpy(command, "ps -e -o pid,pcpu | grep ");// put a part of the CPU monitoring command in the string 
+			strcat(command, convert); // concatenates the string command with pid already transformed into string
+			strcat(command, ";pmap ");// put a part of the memory monitoring command in the string 
+			strcat(command, convert);// concatenates the string command with pid already transformed into string
+			strcat(command, " | grep -i total"); // final part of the memory monitoring command
 		}
 
-		strcpy(comand, "kill "); //guardando a string kill na string comand, para matar o pid do filho
-		strcat(comand, convert); //concatenando a string comand("kill ") com o pid do filho
-		system(comand); //matando o filho
+		while(i < 10) // the execution of the program with a limit of 10 seconds
+		{
+			system(command); // running the command in bash
+			sleep(1); // wait 1 second
+			i++; // increment 1 in the counter
+		}
+
+		strcpy(command, "kill "); // saving the string ("kill ") in the string command to kill the child process
+		strcat(command, convert); // concatenating a command string ("kill ") with the child pid
+		system(command); // killing the child process
 
 	}
 
-	perror ("") ; /* execve não funcionou */
+	perror ("") ; // show the status of the program execution
 
-	printf ("Tchau !\n") ;
-	exit(0) ; /* encerra o processo com sucesso (código 0) */
+	printf ("Tchau !\n") ; // show the message "Tchau !"
+	exit(0) ; // successfully finished of the process
 }
